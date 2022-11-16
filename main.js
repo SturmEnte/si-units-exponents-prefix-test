@@ -5,64 +5,70 @@ let solutions = [[], [], [], [], [], [], []];
 
 	let siTable = document.getElementById("si");
 
-	data["si-units"].forEach((siUnit, i) => {
-		const size = siUnit[0];
-		const name = siUnit[1];
-		const unit = siUnit[2];
-		const formulaSign = siUnit[3];
+	document.getElementById("new-si").addEventListener("click", newSiTable);
 
-		let values = generateValues();
+	newSiTable();
 
-		if (i == 0) values = [true, true, true, true];
+	function newSiTable() {
+		siTable.innerHTML = "";
+		data["si-units"].forEach((siUnit, i) => {
+			const size = siUnit[0];
+			const name = siUnit[1];
+			const unit = siUnit[2];
+			const formulaSign = siUnit[3];
 
-		let row = document.createElement("tr");
+			let values = generateValues();
 
-		let sizeElem = document.createElement("th");
-		if (values[0] == true) {
-			sizeElem.innerHTML = size;
-		} else {
-			let input = document.createElement("input");
-			sizeElem.appendChild(input);
-			solutions[i - 1].push([size, input]);
-		}
-		row.appendChild(sizeElem);
+			if (i == 0) values = [true, true, true, true];
 
-		let nameElem = document.createElement("th");
-		if (values[1] == true) {
-			nameElem.innerHTML = name;
-		} else {
-			let input = document.createElement("input");
-			nameElem.appendChild(input);
-			solutions[i - 1].push([name, input]);
-		}
-		row.appendChild(nameElem);
+			let row = document.createElement("tr");
 
-		let unitElem = document.createElement("th");
-		if (values[2] == true) {
-			unitElem.innerHTML = unit;
-		} else {
-			let input = document.createElement("input");
-			unitElem.appendChild(input);
-			solutions[i - 1].push([unit, input]);
-		}
-		row.appendChild(unitElem);
+			let sizeElem = document.createElement("th");
+			if (values[0] == true) {
+				sizeElem.innerHTML = size;
+			} else {
+				let input = document.createElement("input");
+				sizeElem.appendChild(input);
+				solutions[i - 1].push([size, input]);
+			}
+			row.appendChild(sizeElem);
 
-		let formulaSignElem = document.createElement("th");
-		if (values[3] == true) {
-			formulaSignElem.innerHTML = formulaSign;
-		} else {
-			let input = document.createElement("input");
-			formulaSignElem.appendChild(input);
-			solutions[i - 1].push([formulaSign, input]);
-		}
-		row.appendChild(formulaSignElem);
+			let nameElem = document.createElement("th");
+			if (values[1] == true) {
+				nameElem.innerHTML = name;
+			} else {
+				let input = document.createElement("input");
+				nameElem.appendChild(input);
+				solutions[i - 1].push([name, input]);
+			}
+			row.appendChild(nameElem);
 
-		siTable.appendChild(row);
-	});
+			let unitElem = document.createElement("th");
+			if (values[2] == true) {
+				unitElem.innerHTML = unit;
+			} else {
+				let input = document.createElement("input");
+				unitElem.appendChild(input);
+				solutions[i - 1].push([unit, input]);
+			}
+			row.appendChild(unitElem);
+
+			let formulaSignElem = document.createElement("th");
+			if (values[3] == true) {
+				formulaSignElem.innerHTML = formulaSign;
+			} else {
+				let input = document.createElement("input");
+				formulaSignElem.appendChild(input);
+				solutions[i - 1].push([formulaSign, input]);
+			}
+			row.appendChild(formulaSignElem);
+
+			siTable.appendChild(row);
+		});
+	}
 })();
 
 document.getElementById("control-si").addEventListener("click", () => {
-	console.log(solutions);
 	for (let i = 0; i < solutions.length; i++) {
 		for (let j = 0; j < solutions[i].length; j++) {
 			let x = solutions[i][j][0].toLowerCase();
@@ -70,12 +76,12 @@ document.getElementById("control-si").addEventListener("click", () => {
 			let y = solutions[i][j][1].value.toLowerCase();
 			y = y.replace(/\s/g, "");
 			if (x != y) {
-				console.log(solutions[i][j][1].style);
 				solutions[i][j][1].style.color = "red";
 				solutions[i][j][1].value = solutions[i][j][0];
 			} else {
 				solutions[i][j][1].style.color = "green";
 			}
+			solutions[i][j][1].readOnly = true;
 		}
 	}
 });
