@@ -1,0 +1,12 @@
+{
+	"si-units": [
+		["Größe", "Name", "Einheit", "Formelzeichen"],
+		["Länge", "Meter", "m", "l / s"],
+		["Masse", "Kilogramm", "kg", "m"],
+		["Zeit", "Sekunden", "s", "t"],
+		["Elektronische Stromstärke", "Ampere", "A", "I"],
+		["Thermodynamische Temperatur", "Kelvin", "K", "T"],
+		["Stoffmenge", "Mol", "mol", "n"],
+		["Lichtstärke", "Candela", "cd", "Iv"]
+	]
+}

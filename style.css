@@ -1,0 +1,56 @@
+:root {
+	--si-size: 282px;
+	--si-name: 96px;
+	--si-unit: 67px;
+	--si-symbol: 140px;
+}
+
+* {
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table tr th {
+	font-style: normal;
+	font-weight: normal;
+	padding: 5px;
+}
+
+table tr:first-child th {
+	font-weight: bold;
+}
+
+#si tr th:nth-child(1) {
+	min-width: var(--si-size);
+	max-width: var(--si-size);
+}
+
+#si tr th:nth-child(2) {
+	min-width: var(--si-name);
+	max-width: var(--si-name);
+}
+
+#si tr th:nth-child(3) {
+	min-width: var(--si-unit);
+	max-width: var(--si-unit);
+}
+
+#si tr th:nth-child(4) {
+	min-width: var(--si-symbol);
+	max-width: var(--si-symbol);
+}
+
+input {
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
