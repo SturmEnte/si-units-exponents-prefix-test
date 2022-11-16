@@ -1,7 +1,7 @@
 let solutions = [[], [], [], [], [], [], []];
 
 (async () => {
-	const data = await (await fetch("/data.json")).json();
+	const data = await (await fetch("data.json")).json();
 
 	let siTable = document.getElementById("si");
 
