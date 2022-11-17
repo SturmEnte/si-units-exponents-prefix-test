@@ -7,7 +7,7 @@ let data;
 
 (async () => {
 	data = await fetch(window.location.href + "data.json");
-	if ((data.status = 404)) data = await fetch("/data.json");
+	if (data.status == 404) data = await fetch("/data.json");
 	data = await data.json();
 
 	document.getElementById("new-si").addEventListener("click", newSiTable);
