@@ -8,5 +8,28 @@
 		["Thermodynamische Temperatur", "Kelvin", "K", "T"],
 		["Stoffmenge", "Mol", "mol", "n"],
 		["Lichtstärke", "Candela", "cd", "Iv"]
+	],
+	"exponents": [
+		["Exponent", "Symbol", "Name"],
+		["Y", "Yotta"],
+		["Z", "Zetta"],
+		["E", "Exa"],
+		["P", "Peta"],
+		["T", "Terra"],
+		["G", "Giga"],
+		["M", "Mega"],
+		["k", "Kilo"],
+		["h", "Hekto"],
+		["da", "Deka"],
+		["d", "Dezi"],
+		["c", "Zenti"],
+		["m", "Milli"],
+		["µ", "Mikro"],
+		["n", "Nano"],
+		["p", "Pico"],
+		["f", "Femto"],
+		["a", "Atto"],
+		["z", "Zepto"],
+		["y", "Yokto"]
 	]
 }
