@@ -6,9 +6,11 @@ let siSolutions = [[], [], [], [], [], [], []];
 let data;
 
 (async () => {
-	data = await fetch(window.location.href + "data.json");
-	console.log(data.status);
-	if (data.status == 404) data = await fetch("data.json");
+	if (window.location.href.includes("sturmente.github.io")) {
+		data = await fetch(window.location.href + "data.json");
+	} else {
+		data = await fetch("data.json");
+	}
 	data = await data.json();
 
 	document.getElementById("new-si").addEventListener("click", newSiTable);
