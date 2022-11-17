@@ -55,6 +55,7 @@ let data;
 				unitElem.innerHTML = unit;
 			} else {
 				let input = document.createElement("input");
+				input.classList.add("caseSensitive");
 				unitElem.appendChild(input);
 				siSolutions[i - 1].push([unit, input]);
 			}
@@ -65,6 +66,7 @@ let data;
 				formulaSignElem.innerHTML = formulaSign;
 			} else {
 				let input = document.createElement("input");
+				input.classList.add("caseSensitive");
 				formulaSignElem.appendChild(input);
 				siSolutions[i - 1].push([formulaSign, input]);
 			}
@@ -117,11 +119,15 @@ let data;
 document.getElementById("control-si").addEventListener("click", () => {
 	for (let i = 0; i < siSolutions.length; i++) {
 		for (let j = 0; j < siSolutions[i].length; j++) {
-			let x = siSolutions[i][j][0].toLowerCase();
+			let x = siSolutions[i][j][0];
 			x = x.replace(/\s/g, "");
-			let y = siSolutions[i][j][1].value.toLowerCase();
+			let y = siSolutions[i][j][1].value;
+			if (siSolutions[i][j][1].classList.contains("caseSensitive") === false) {
+				x = x.toLowerCase();
+				y = y.toLowerCase();
+			}
 			y = y.replace(/\s/g, "");
-			if (x != y) {
+			if (x !== y) {
 				siSolutions[i][j][1].style.color = "red";
 				siSolutions[i][j][1].value = siSolutions[i][j][0];
 			} else {
